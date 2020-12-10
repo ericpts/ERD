@@ -1,0 +1,25 @@
+batch_size = 256
+
+
+data.source_dataset = "svhn_cropped"
+data.ood_dataset = "cifar10"
+data.source_train_and_valid_size = 50000
+data.target_size = 20000
+data.valid_ratio = 0.2
+data.target_ood_ratio = 0.5
+data.batch_size = %batch_size
+data.use_data_augmentation = True
+
+
+train.model_arch = "vgg"
+train.epochs = 100
+train.lr = 0.001
+train.l2_reg = 0.
+train.nn_depth = 5
+train.ckpt_epoch_freq = 5
+train.save_best_ckpt_only = True
+train.use_pretrained_model = False
+
+
+logging.log_every_n_epochs = 5
+

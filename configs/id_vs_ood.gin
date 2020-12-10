@@ -1,0 +1,8 @@
+num_classes = 2
+
+data.num_classes = %num_classes
+data.target_size = 10000
+data.target_ood_ratio = 1
+data.source_train_and_valid_size = 12500
+
+train.epochs = 30

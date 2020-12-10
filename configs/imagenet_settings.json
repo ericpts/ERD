@@ -1,0 +1,8 @@
+{
+    "rgb_datasets": [
+        [
+            "imagenet_resized/32x32",
+            "objectnet/32x32"
+        ]
+    ]
+}

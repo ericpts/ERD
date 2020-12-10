@@ -1,0 +1,15 @@
+{
+  "medical_datasets": [
+    ["nih_id", "nih_ood"],
+    ["nih_id", "uc1_and_mura"],
+    ["nih_id", "pc_for_nih"],
+    ["pc_id", "uc1_and_mura"],
+    ["pc_id", "pc_uc2"],
+    ["pc_id", "pc_uc3"],
+    ["drd", "riga"],
+    ["drd", "drimdb"],
+    ["drd", "uc1/rgb"],
+    ["pcam", "uc1_and_malaria"],
+    ["pcam", "idc_and_anhir"]
+  ]
+}
