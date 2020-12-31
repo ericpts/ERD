@@ -18,10 +18,29 @@ We'll set up a root folder for storing RETO experiment data, for example `~/reto
 Firt we need to export some environment variables:
 
 ```bash
+# Where datasets and models will be stored; can use a lot of space.
+export SCRATCH=~/
+
+# Where metrics and parameters will be stored.
 export RANDOM_LABELS_PROJECT_ROOT=~/reto/
+# Log files will be stored here.
 export RANDOM_LABELS_LOGS_DIR=~/reto/logs
+
+# Here we will manually place pretrained models, to be used in the setting where
+# the networks are initialized from pretrained weights.
 export RANDOM_LABELS_PRETRAINED_MODELS_ROOT=~/reto/pretrained_models
 ```
+
+### Datasets
+
+We use `tensorflow_datasets` for the common datasets (MNISTS, CIFAR, SVHN), and it
+automatically downloads and creates the datasets.
+
+For ObjectNet, download [this](https://polybox.ethz.ch/index.php/s/6m334YlpiwJFU2C) archive, and unzip it in the following directory: `~/.datasets/objectnet_32x32/box` (you can see it in `reproduction/lib_data.py` in the `load_objectnet()` function).
+
+For a list of the supported scenarios, look at `configs/settings.json`.
+Every pair represents a (`source_dataset`, `ood_dataset`), for example.
+Look in the next section for how to pass those as arguments when training RETO.
 
 ### Training
 
