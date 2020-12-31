@@ -1,12 +1,10 @@
 import argparse
 from pathlib import Path
-import itertools
 import subprocess
 import mlflow
 import os
 import glob
 from typing import Tuple, List
-import reproduction.lib_data as lib_data
 
 
 eval_accuracy_on_pretrained_model = True
