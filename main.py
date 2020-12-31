@@ -26,6 +26,7 @@ from reproduction.lib_data import get_image_size
 
 from typing import Optional
 
+
 def retry(f):
     while True:
         try:
@@ -473,30 +474,6 @@ def main(
         if ckpt_dir.exists():
             print(f"Cleaning checkpoint dir {ckpt_dir}")
             shutil.rmtree(ckpt_dir)
-
-        # TODO: Loading a saved model results in NaN loss.
-        # subdirs = list(ckpt_dir.iterdir())
-        # saved_epochs = []
-        # for sd in subdirs:
-        #     [_model, epoch] = str(sd.name).split(".")
-        #     if _model != "model":
-        #         print(f"Unrecognized subdir: {_model}")
-        #         continue
-        #     if epoch == "best":
-        #         continue
-        #     saved_epochs.append(int(epoch))
-        # if len(saved_epochs) == 0:
-        #     print(
-        #         f"Could not find any saved model in {ckpt_dir} (of the form model.$epoch)"
-        #     )
-        #     resumed_model = None
-        # else:
-        #     initial_epoch = max(saved_epochs)
-        #     subdir = f"model.{initial_epoch:02}"
-        #     model_dir = ckpt_dir / subdir
-        #     assert (model_dir).exists(), f"Expected to find {model_dir}"
-        #     print(f"Trying to reuse saved model from {model_dir}.")
-        #     resumed_model = tf.keras.models.load_model(model_dir)
 
         os.mkdir(ckpt_dir)
         resumed_model = None

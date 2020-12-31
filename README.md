@@ -69,3 +69,31 @@ statistics look for the metrics prefixed with `heur`; for example,
 In the file `utils.py`, modify the function `preprocess_dataset`. At the start,
 add a special case for your particular dataset.
 Data needs to be a `tf.data.Dataset`, containing the images and the labels.
+
+
+## Adding a new model
+
+Create a new file in `models/`, for example `models/my_own_net.py`. Look in the
+other files in that directory for examples.
+Then create a file under `configs/` with the specific configuration for your
+model: `configs/my_own_net.gin`, look at the other files for examples.
+The most important parameters are
+```
+train.model_arch = "my_own_net"
+train.lr = 0.1
+train.l2_reg = 5e-4
+train.nn_depth = 100
+```
+
+Finally, in `main.py` in the `train()` function, add an if branch with your
+particular model:
+
+```python
+elif model_arch == 'my_own_net':
+    model = my_own_net(
+        input_shape=image_shape,
+        depth=nn_depth,
+        num_classes=data.num_classes,
+        l2_reg=l2_reg,
+    )
+```
